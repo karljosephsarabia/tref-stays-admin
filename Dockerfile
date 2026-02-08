@@ -12,17 +12,10 @@ RUN apt-get update && apt-get install -y \
     unzip \
     ffmpeg \
     nodejs \
-    npm \
-    python3 \
-    python3-pip \
-    make \
-    g++
+    npm
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Create python symlink for node-gyp
-RUN ln -sf /usr/bin/python3 /usr/bin/python
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_pgsql mbstring exif pcntl bcmath gd
@@ -38,9 +31,6 @@ COPY . .
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
-
-# Set Python path for node-gyp
-ENV PYTHON=/usr/bin/python3
 
 # Install Node dependencies and build assets
 RUN npm install && npm run production
