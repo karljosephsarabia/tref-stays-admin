@@ -12,7 +12,14 @@ RUN apt-get update && apt-get install -y \
     unzip \
     ffmpeg \
     nodejs \
-    npm
+    npm \
+    python3 \
+    python3-pip \
+    make \
+    g++
+
+# Create python symlink for node-gyp
+RUN ln -s /usr/bin/python3 /usr/bin/python
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
