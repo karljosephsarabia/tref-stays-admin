@@ -60,5 +60,16 @@ RUN echo '<Directory /var/www/html/public>\n\
 # Expose port (Render will provide the PORT env variable)
 EXPOSE 80
 
-# Start Apache
-CMD ["apache2-foreground"]
+# Create startup script to run migrations
+RUN echo '#!/bin/bash\n\
+set -e\n\
+echo "Running Laravel setup..."\n\
+php artisan config:clear\n\
+php artisan cache:clear\n\
+php artisan migrate --force || echo "Migrations failed or already run"\n\
+echo "Starting Apache..."\n\
+exec apache2-foreground' > /usr/local/bin/start.sh && \
+chmod +x /usr/local/bin/start.sh
+
+# Start Apache with migrations
+CMD ["/usr/local/bin/start.sh"]
