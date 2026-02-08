@@ -32,10 +32,8 @@ COPY . .
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-# Skip frontend build - Laravel Mix v1 has incompatible dependencies
-# Frontend assets should be precompiled locally and committed to repo
-# Or upgrade Laravel Mix to v6+ for modern sass support
-# RUN npm install && npm run production
+# Force cache invalidation - updated 2026-02-08
+ENV NPM_BUILD_SKIPPED=true
 
 # Create storage link
 RUN php artisan storage:link || true
