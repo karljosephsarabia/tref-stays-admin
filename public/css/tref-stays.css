@@ -1,0 +1,1225 @@
+/* Tref Stays - Modern Vacation Rental Design */
+
+/* ============================================
+   CSS Variables / Design System
+   ============================================ */
+:root {
+    --primary-color: #FF385C;
+    --primary-hover: #E31C5F;
+    --secondary-color: #00A699;
+    --dark-color: #222222;
+    --text-color: #484848;
+    --text-light: #717171;
+    --border-color: #DDDDDD;
+    --background-light: #F7F7F7;
+    --white: #FFFFFF;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+    --shadow-lg: 0 8px 28px rgba(0,0,0,0.15);
+    --shadow-hover: 0 6px 20px rgba(0,0,0,0.18);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --transition: all 0.25s ease;
+    --font-family: 'Circular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+/* ============================================
+   Global Reset & Base Styles
+   ============================================ */
+.tref-page {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.tref-page * {
+    box-sizing: border-box;
+}
+
+/* ============================================
+   Navigation / Header
+   ============================================ */
+.tref-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.tref-navbar.scrolled {
+    box-shadow: var(--shadow-sm);
+}
+
+.tref-navbar-container {
+    max-width: 1760px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.tref-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+}
+
+.tref-logo img {
+    height: 40px;
+    width: auto;
+}
+
+.tref-logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.5px;
+}
+
+/* Search Bar in Navbar */
+.tref-search-bar {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 40px;
+    padding: 0;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    overflow: hidden;
+    max-width: 500px;
+}
+
+.tref-search-bar:hover,
+.tref-search-bar:focus-within {
+    box-shadow: var(--shadow-md);
+}
+
+.tref-search-bar-item {
+    padding: 14px 24px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.tref-search-bar-item:hover {
+    background: var(--background-light);
+}
+
+.tref-search-bar-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--border-color);
+}
+
+.tref-search-bar-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tref-search-bar-btn:hover {
+    background: var(--primary-hover);
+    transform: scale(1.05);
+}
+
+/* Nav Links */
+.tref-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.tref-nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: var(--radius-xl);
+    transition: var(--transition);
+}
+
+.tref-nav-link:hover {
+    background: var(--background-light);
+}
+
+/* User Menu */
+.tref-user-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 6px 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 40px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tref-user-menu:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.tref-user-menu-icon {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.tref-user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 14px;
+}
+
+.tref-user-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+.tref-hero {
+    position: relative;
+    height: 80vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.tref-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/images/hero-bg.jpg') center/cover no-repeat;
+    opacity: 0.9;
+}
+
+.tref-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+}
+
+.tref-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+    max-width: 900px;
+}
+
+.tref-hero-title {
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.tref-hero-subtitle {
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    opacity: 0.95;
+}
+
+/* Hero Search Box */
+.tref-hero-search {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 8px;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 0;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.tref-hero-search-field {
+    flex: 1;
+    min-width: 180px;
+    padding: 16px 24px;
+    border: none;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    position: relative;
+}
+
+.tref-hero-search-field:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 32px;
+    width: 1px;
+    background: var(--border-color);
+}
+
+.tref-hero-search-field:hover,
+.tref-hero-search-field:focus-within {
+    background: var(--background-light);
+}
+
+.tref-hero-search-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tref-hero-search-field input,
+.tref-hero-search-field select {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    color: var(--text-color);
+    outline: none;
+    cursor: pointer;
+}
+
+.tref-hero-search-field input::placeholder {
+    color: var(--text-light);
+}
+
+.tref-hero-search-field input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+.tref-hero-search-btn {
+    padding: 16px 32px;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.tref-hero-search-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.tref-hero-search-btn:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   Featured Destinations / Categories
+   ============================================ */
+.tref-section {
+    padding: 60px 40px;
+    max-width: 1760px;
+    margin: 0 auto;
+}
+
+.tref-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.tref-section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.tref-section-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.tref-section-link:hover {
+    background: var(--background-light);
+}
+
+/* Category Cards */
+.tref-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+.tref-category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px;
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.tref-category-card:hover {
+    border-color: var(--dark-color);
+    transform: translateY(-4px);
+}
+
+.tref-category-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--background-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.tref-category-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark-color);
+    text-align: center;
+}
+
+/* ============================================
+   Property Cards
+   ============================================ */
+.tref-properties {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.tref-property-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.tref-property-card:hover {
+    transform: translateY(-4px);
+}
+
+.tref-property-image {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+}
+
+.tref-property-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.tref-property-card:hover .tref-property-image img {
+    transform: scale(1.05);
+}
+
+.tref-property-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--white);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+}
+
+.tref-property-wishlist {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tref-property-wishlist:hover {
+    background: var(--white);
+    transform: scale(1.1);
+}
+
+.tref-property-wishlist svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Property Carousel */
+.tref-property-carousel {
+    position: relative;
+}
+
+.tref-property-carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    background: var(--white);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.tref-property-card:hover .tref-property-carousel-nav {
+    opacity: 1;
+}
+
+.tref-property-carousel-nav:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.tref-property-carousel-nav.prev {
+    left: 12px;
+}
+
+.tref-property-carousel-nav.next {
+    right: 12px;
+}
+
+.tref-property-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+}
+
+.tref-property-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.6);
+    transition: var(--transition);
+}
+
+.tref-property-dot.active {
+    background: var(--white);
+    width: 8px;
+    height: 8px;
+}
+
+/* Property Info */
+.tref-property-info {
+    padding: 16px 0;
+}
+
+.tref-property-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+}
+
+.tref-property-location {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.tref-property-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+}
+
+.tref-property-rating svg {
+    width: 14px;
+    height: 14px;
+    fill: var(--dark-color);
+}
+
+.tref-property-type {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 4px;
+}
+
+.tref-property-specs {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.tref-property-price {
+    font-size: 15px;
+}
+
+.tref-property-price strong {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.tref-property-price span {
+    color: var(--text-light);
+}
+
+/* ============================================
+   Auth Forms (Login/Register)
+   ============================================ */
+.tref-auth-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.tref-auth-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px 40px;
+    background: var(--background-light);
+}
+
+.tref-auth-card {
+    width: 100%;
+    max-width: 480px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 48px;
+}
+
+.tref-auth-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.tref-auth-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 8px;
+}
+
+.tref-auth-subtitle {
+    font-size: 15px;
+    color: var(--text-light);
+}
+
+/* Form Elements */
+.tref-form-group {
+    margin-bottom: 20px;
+}
+
+.tref-form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 8px;
+}
+
+.tref-form-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    transition: var(--transition);
+    outline: none;
+}
+
+.tref-form-input:focus {
+    border-color: var(--dark-color);
+    box-shadow: 0 0 0 2px rgba(34,34,34,0.1);
+}
+
+.tref-form-input::placeholder {
+    color: var(--text-light);
+}
+
+.tref-form-input.error {
+    border-color: var(--primary-color);
+}
+
+.tref-form-error {
+    font-size: 13px;
+    color: var(--primary-color);
+    margin-top: 6px;
+}
+
+.tref-form-select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    background: var(--white);
+    cursor: pointer;
+    transition: var(--transition);
+    outline: none;
+}
+
+.tref-form-select:focus {
+    border-color: var(--dark-color);
+}
+
+/* Buttons */
+.tref-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.tref-btn-primary {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.tref-btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.tref-btn-secondary {
+    background: var(--dark-color);
+    color: var(--white);
+}
+
+.tref-btn-secondary:hover {
+    background: #000;
+}
+
+.tref-btn-outline {
+    background: transparent;
+    color: var(--dark-color);
+    border: 1px solid var(--dark-color);
+}
+
+.tref-btn-outline:hover {
+    background: var(--dark-color);
+    color: var(--white);
+}
+
+.tref-btn-full {
+    width: 100%;
+}
+
+.tref-btn-lg {
+    padding: 16px 32px;
+    font-size: 18px;
+}
+
+/* Social Login */
+.tref-social-divider {
+    display: flex;
+    align-items: center;
+    margin: 24px 0;
+}
+
+.tref-social-divider::before,
+.tref-social-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.tref-social-divider span {
+    padding: 0 16px;
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.tref-social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tref-social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 24px;
+    background: var(--white);
+    border: 1px solid var(--dark-color);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tref-social-btn:hover {
+    background: var(--background-light);
+}
+
+.tref-social-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Auth Links */
+.tref-auth-links {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.tref-auth-links a {
+    color: var(--dark-color);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.tref-auth-links a:hover {
+    color: var(--primary-color);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.tref-footer {
+    background: var(--background-light);
+    border-top: 1px solid var(--border-color);
+    padding: 48px 40px 24px;
+}
+
+.tref-footer-container {
+    max-width: 1760px;
+    margin: 0 auto;
+}
+
+.tref-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.tref-footer-column h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tref-footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tref-footer-column li {
+    margin-bottom: 12px;
+}
+
+.tref-footer-column a {
+    font-size: 14px;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.tref-footer-column a:hover {
+    color: var(--dark-color);
+    text-decoration: underline;
+}
+
+.tref-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.tref-footer-copyright {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.tref-footer-social {
+    display: flex;
+    gap: 16px;
+}
+
+.tref-footer-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.tref-footer-social a:hover {
+    background: var(--dark-color);
+    color: var(--white);
+    border-color: var(--dark-color);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 1200px) {
+    .tref-navbar-container {
+        padding: 0 24px;
+    }
+
+    .tref-section {
+        padding: 48px 24px;
+    }
+
+    .tref-hero-title {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 992px) {
+    .tref-search-bar {
+        display: none;
+    }
+
+    .tref-hero {
+        height: 70vh;
+        min-height: 500px;
+    }
+
+    .tref-hero-title {
+        font-size: 40px;
+    }
+
+    .tref-hero-search {
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .tref-hero-search-field {
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
+        padding: 16px;
+    }
+
+    .tref-hero-search-field:last-of-type {
+        border-bottom: none;
+    }
+
+    .tref-hero-search-btn {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .tref-properties {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .tref-navbar-container {
+        padding: 0 16px;
+        height: 64px;
+    }
+
+    .tref-logo img {
+        height: 32px;
+    }
+
+    .tref-logo-text {
+        font-size: 20px;
+    }
+
+    .tref-search-bar {
+        max-width: 400px;
+    }
+
+    .tref-search-bar-item {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .tref-nav-links {
+        gap: 12px;
+    }
+
+    .tref-nav-link {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+    
+    .tref-hero-search {
+        max-width: 100%;
+    }
+    
+    .tref-hero-search-field {
+        min-width: calc(50% - 2px);
+    }
+    
+    .tref-hero-search-btn {
+        min-width: 100%;
+    }
+}
+
+/* ============================================
+   Mobile Styles (< 768px)
+   ============================================ */
+@media (max-width: 768px) {
+    .tref-navbar-container {
+        height: 64px;
+        padding: 0 16px;
+    }
+
+    .tref-nav-links {
+        display: none;
+    }
+
+    .tref-hero {
+        margin-top: 64px;
+        height: auto;
+        min-height: 400px;
+        padding: 60px 16px;
+    }
+
+    .tref-hero-title {
+        font-size: 32px;
+    }
+
+    .tref-hero-subtitle {
+        font-size: 16px;
+        margin-bottom: 24px;
+    }
+    
+    .tref-hero-search {
+        padding: 4px;
+        gap: 4px;
+    }
+    
+    .tref-hero-search-field {
+        min-width: 100%;
+        padding: 12px 16px;
+    }
+    
+    .tref-hero-search-field:not(:last-child)::after {
+        display: none;
+    }
+    
+    .tref-hero-search-btn {
+        width: 100%;
+        padding: 14px 24px;
+    }
+
+    .tref-section {
+        padding: 32px 16px;
+    }
+
+    .tref-section-title {
+        font-size: 22px;
+    }
+
+    .tref-auth-card {
+        padding: 32px 24px;
+        margin: 0 16px;
+    }
+
+    .tref-footer {
+        padding: 32px 16px 16px;
+    }
+
+    .tref-footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .tref-properties {
+        grid-template-columns: 1fr;
+    }
+
+    .tref-categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tref-logo-text {
+        display: none;
+    }
+    
+    .tref-nav-link {
+        display: none;
+    }
+    
+    .tref-nav-links .btn {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+    
+    .tref-hero-title {
+        font-size: 28px;
+    }
+    
+    .tref-hero-subtitle {
+        font-size: 14px;
+    }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.tref-text-center { text-align: center; }
+.tref-text-left { text-align: left; }
+.tref-text-right { text-align: right; }
+
+.tref-mt-1 { margin-top: 8px; }
+.tref-mt-2 { margin-top: 16px; }
+.tref-mt-3 { margin-top: 24px; }
+.tref-mt-4 { margin-top: 32px; }
+
+.tref-mb-1 { margin-bottom: 8px; }
+.tref-mb-2 { margin-bottom: 16px; }
+.tref-mb-3 { margin-bottom: 24px; }
+.tref-mb-4 { margin-bottom: 32px; }
+
+.tref-hidden { display: none !important; }
+.tref-visible { display: block !important; }
+
+/* Loading Spinner */
+.tref-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: tref-spin 0.8s linear infinite;
+}
+
+@keyframes tref-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Toast Notifications */
+.tref-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark-color);
+    color: var(--white);
+    padding: 16px 24px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: var(--shadow-lg);
+    z-index: 9999;
+    animation: tref-slideUp 0.3s ease;
+}
+
+@keyframes tref-slideUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
